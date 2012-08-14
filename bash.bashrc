@@ -59,3 +59,5 @@ if [[ "${fortune}" == "yes" ]]; then
 fi
 
 unset fortune
+
+# vim: syn=sh:

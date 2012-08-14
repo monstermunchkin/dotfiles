@@ -100,3 +100,5 @@ URxvt*iso14755_52: false
 
 Xautolock.locker: /usr/bin/i3lock -c 000000 -i /usr/local/share/wallpapers/background
 Xautolock.time: 10
+
+# vim: syn=xdefaults:

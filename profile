@@ -25,3 +25,5 @@ unset TERMCAP
 
 # Man is much better than us at figuring this out
 unset MANPATH
+
+# vim: syn=sh:

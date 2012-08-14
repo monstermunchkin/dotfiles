@@ -142,3 +142,5 @@
 		set listchars=tab:▸\ ,eol:¬
 	endif
 endfunction
+
+" vim: syn=vim:

@@ -37,3 +37,4 @@ esac
 # exec gnome-session
 # exec startkde
 # ...or the Window Manager of your choice
+# vim: syn=sh:
