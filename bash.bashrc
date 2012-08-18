@@ -44,9 +44,10 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias vi='vim'
+alias sudo='sudo '
 
 test -x /usr/bin/lesspipe.sh && eval "$(SHELL=/bin/bash lesspipe.sh)"
-test -f /etc/bash_aliases && . /etc/bash_aliases
 test -r /usr/share/bash-completion/bash_completion && \
 	. /usr/share/bash-completion/bash_completion
 
@@ -59,5 +60,3 @@ if [[ "${fortune}" == "yes" ]]; then
 fi
 
 unset fortune
-
-# vim: syn=sh:
