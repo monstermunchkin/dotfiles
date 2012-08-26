@@ -22,8 +22,6 @@ else
     PS1='\u@\h\$ '
 fi
 
-unset color_prompt
-
 # Set terminal title
 case "${TERM}" in
     xterm*|rxvt*)
