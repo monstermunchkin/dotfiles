@@ -47,7 +47,7 @@
 	if has("statusline")
 		set statusline=%F%r%h%w[%{&ff}]%y%=%m[%04L][%03p%%][%04l,%04v]
 		"              | | | |  |      | | |  |     |       |    |
-		"              | | | |  |      | | |  |     |       |    + current 
+		"              | | | |  |      | | |  |     |       |    + current
 		"              | | | |  |      | | |  |     |       |      column
 		"              | | | |  |      | | |  |     |       + current line
 		"              | | | |  |      | | |  |     + current % into file
@@ -90,12 +90,14 @@
 	nmap <PageUp> <ESC>:bp<RETURN>
 	nmap <PageDown> <ESC>:bn<RETURN>
 	nmap <Home> <ESC>:bf<RETURN>
-	nmap <End> <ESC>:bl<RETURN> 
+	nmap <End> <ESC>:bl<RETURN>
+	" remove whitespaces at line endings
+	map <F7> <ESC>:%s/ \+$//g<RETURN>
 	" show errors (needs syntastic)
 	map <F8> <ESC>:Errors<RETURN>
 	" switch list setting
 	map <F9> <ESC>:call Toggle_tabs()<RETURN>
-	imap <F9> <ESC>:call Toggle_tabs()<RETURN>
+
 	" switch between tabs
 	" if has("windows")
 	" 	map <F5> <ESC>:tabfirst<RETURN>

@@ -25,7 +25,7 @@ case "${1}" in
 		exec dbus-launch --exit-with-session startxfce4
 		;;
 	*)
-		xset r rate 255
+		xset r rate 300 25
 		numlockx
 		export BROWSER=chromium
 		export EDITOR=vim
