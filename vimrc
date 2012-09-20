@@ -110,6 +110,7 @@
 " Autocommands {
 	if has("autocmd")
 		au FileType python setlocal ts=4 sts=4 sw=4 et
+		au FileType ruby setlocal ts=2 sts=2 sw=2 et
 		augroup perl
 			au!
 			au BufNewFile *.pl 0r ~/.vim/skeleton.pl
@@ -133,13 +134,13 @@
 		set guioptions-=m "remove menu bar
 		set guioptions-=T "remove toolbar
 		set guioptions-=r "remove right-hand scroll bar
-		set guifont=Monospace\ 9
+		set guifont=DejaVu\ Sans\ Mono\ 9
 	endif
 " }
 
 :function Toggle_tabs()
 	if &listchars == "tab:▸\ ,eol:¬"
-		set listchars=tab:\ \ 
+		set listchars=tab:\ \  "mind the whitespace
 	else
 		set listchars=tab:▸\ ,eol:¬
 	endif
