@@ -1,0 +1,5 @@
+export PATH="/usr/local/texlive/2012/bin/x86_64-linux:${PATH}"
+export PATH="/opt/android-ndk/toolchains/arm-linux-androideabi-4.6/prebuilt/linux-x86/bin:${PATH}"
+export PATH="/opt/FlashTool:${PATH}"
+export PATH="/home/thomas/repos/starforge/local/tools:${PATH}"
+export PATH="/opt/eldk-5.2.1/armv7a/sysroots/i686-eldk-linux/usr/bin/armv7a-vfp-neon-linux-gnueabi:${PATH}"
