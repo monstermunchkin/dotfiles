@@ -162,10 +162,10 @@ bindsym XF86AudioPrev exec nofocusmm.sh prev
 bindsym XF86ScreenSaver exec xautolock -locknow 
 
 # floating mode
-for_window [class="Pidgin"] border normal floating enable
-for_window [class="Gajim"] border normal floating enable
-for_window [class="Xfce4-notifyd"] border normal floating enable
-for_window [class="Thunar" title="File Operation Progress"] border normal floating enable
+for_window [class="Pidgin"] floating enable border normal
+for_window [class="Gajim"] floating enable border normal
+for_window [class="Xfce4-notifyd"] floating enable border normal
+for_window [class="Thunar" title="File Operation Progress"] floating enable border normal
 
 # workspace settings
 #assign [class="Chromium"] 1
