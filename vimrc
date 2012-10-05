@@ -92,7 +92,7 @@
 	nmap <Home> <ESC>:bf<RETURN>
 	nmap <End> <ESC>:bl<RETURN>
 	" remove whitespaces at line endings
-	map <F7> <ESC>:%s/ \+$//g<RETURN>
+	map <F7> <ESC>:%s/ \+$//ge\|%s/\t\+$//ge<RETURN>
 	" show errors (needs syntastic)
 	map <F8> <ESC>:Errors<RETURN>
 	" switch list setting
@@ -111,6 +111,7 @@
 	if has("autocmd")
 		au FileType python setlocal ts=4 sts=4 sw=4 et
 		au FileType ruby setlocal ts=2 sts=2 sw=2 et
+		au FileType eruby setlocal ts=2 sts=2 sw=2 et
 		augroup perl
 			au!
 			au BufNewFile *.pl 0r ~/.vim/skeleton.pl
