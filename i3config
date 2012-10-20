@@ -176,6 +176,7 @@ exec nitrogen --restore
 exec dropboxd
 exec urxvtd
 exec xautolock
+exec yapan
 
 # screen layout
 workspace 1 output VGA1
