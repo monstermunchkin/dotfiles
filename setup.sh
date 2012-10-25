@@ -3,7 +3,7 @@
 sudo ln -fsv "${PWD}/vimrc" /etc/vimrc
 sudo ln -fsv "${PWD}/wombat2562.vim" /usr/share/vim/vim73/colors/wombat2562.vim
 
-ln -fsv "${PWD}/xinitc" ~/.xinitc
+ln -fsv "${PWD}/xinitrc" ~/.xinitrc
 ln -fsv "${PWD}/Xresources" ~/.Xresources
 
 ln -fsv "${PWD}/i3config" ~/.i3/config
