@@ -1,5 +1,6 @@
 " General {
 	set nocompatible "use VIM settings
+	call pathogen#infect("~/.vim/bundle")
 	if has("gui_running")
 		colorscheme wombat2562
 		set background=dark
@@ -82,18 +83,19 @@
 " }
 
 " Mappings {
-	" copy, paste and cut
-	map <F2> "+y
-	map <F3> "+gP
-	map <F4> "+x
+	nmap <RETURN> <ESC>o<ESC>
 	" switch between buffers
 	nmap <PageUp> <ESC>:bp<RETURN>
 	nmap <PageDown> <ESC>:bn<RETURN>
 	nmap <Home> <ESC>:bf<RETURN>
 	nmap <End> <ESC>:bl<RETURN>
+	" copy, paste and cut
+	map <F2> "+y
+	map <F3> "+gP
+	map <F4> "+x
 	" remove whitespaces at line endings
 	map <F7> <ESC>:%s/ \+$//ge\|%s/\t\+$//ge<RETURN>
-	" show errors (needs syntastic)
+	" show errors (requires syntastic)
 	map <F8> <ESC>:Errors<RETURN>
 	" switch list setting
 	map <F9> <ESC>:call Toggle_tabs()<RETURN>
