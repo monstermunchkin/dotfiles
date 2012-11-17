@@ -83,6 +83,9 @@
 " }
 
 " Mappings {
+	" replace all occurences of visual selection
+	vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+	" new line on return
 	nmap <RETURN> <ESC>o<ESC>
 	" switch between buffers
 	nmap <PageUp> <ESC>:bp<RETURN>
@@ -99,14 +102,10 @@
 	map <F8> <ESC>:Errors<RETURN>
 	" switch list setting
 	map <F9> <ESC>:call Toggle_tabs()<RETURN>
-
-	" switch between tabs
-	" if has("windows")
-	" 	map <F5> <ESC>:tabfirst<RETURN>
-	" 	map <F6> <ESC>:tabprevious<RETURN>
-	" 	map <F7> <ESC>:tabnext<RETURN>
-	" 	map <F8> <ESC>:tablast<RETURN>
-	" endif
+	" plugins
+	map <F10> <ESC>:NERDTreeToggle<ESC>
+	map <F11> <ESC>:CommandT<ESC>
+	map <F12> <ESC>:TagbarToggle<ESC>
 " }
 
 " Autocommands {
