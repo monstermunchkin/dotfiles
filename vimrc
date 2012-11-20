@@ -83,29 +83,30 @@
 " }
 
 " Mappings {
+	nmap ,r :call RangerChooser()<CR>
 	" replace all occurences of visual selection
 	vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 	" new line on return
-	nmap <RETURN> <ESC>o<ESC>
+	nmap <CR> o<ESC>
 	" switch between buffers
-	nmap <PageUp> <ESC>:bp<RETURN>
-	nmap <PageDown> <ESC>:bn<RETURN>
-	nmap <Home> <ESC>:bf<RETURN>
-	nmap <End> <ESC>:bl<RETURN>
+	nmap <PageUp> :bp<CR>
+	nmap <PageDown> :bn<CR>
+	nmap <Home> :bf<CR>
+	nmap <End> :bl<CR>
 	" copy, paste and cut
-	map <F2> "+y
-	map <F3> "+gP
-	map <F4> "+x
+	vmap <F2> "+y
+	vmap <F3> "+gP
+	vmap <F4> "+x
 	" remove whitespaces at line endings
-	map <F7> <ESC>:%s/ \+$//ge\|%s/\t\+$//ge<RETURN>
+	nmap <F7> :%s/ \+$//ge\|%s/\t\+$//ge<CR>
 	" show errors (requires syntastic)
-	map <F8> <ESC>:Errors<RETURN>
+	nmap <F8> :Errors<CR>
 	" switch list setting
-	map <F9> <ESC>:call Toggle_tabs()<RETURN>
+	nmap <F9> :call Toggle_tabs()<CR>
 	" plugins
-	map <F10> <ESC>:NERDTreeToggle<ESC>
-	map <F11> <ESC>:CommandT<ESC>
-	map <F12> <ESC>:TagbarToggle<ESC>
+	nmap <F10> :NERDTreeToggle<CR>
+	nmap <F11> :CommandT<CR>
+	nmap <F12> :TagbarToggle<CR>
 " }
 
 " Autocommands {
@@ -147,5 +148,14 @@
 		set listchars=tab:▸\ ,eol:¬
 	endif
 endfunction
+
+:function RangerChooser()
+	exec "silent !ranger --choosefile=/tmp/chosenfile " . expand("%:p:h")
+	if filereadable('/tmp/chosenfile')
+		exec 'edit ' . system('cat /tmp/chosenfile')
+		call system('rm /tmp/chosenfile')
+	endif
+	redraw!
+endfun
 
 " vim: syn=vim:
