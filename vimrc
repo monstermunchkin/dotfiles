@@ -78,35 +78,37 @@
 	if has("folding")
 		set foldenable "turn on folding
 		set foldmethod=indent "foldmethod
-		set foldlevel=100 "foldlevel
+		set foldlevelstart=99 " no folds closed on start
 	endif
 " }
 
 " Mappings {
-	nmap ,r :call RangerChooser()<CR>
+	nnoremap ,r :call RangerChooser()<CR>
+	" toggle fold under cursor
+	nnoremap <Space> za
 	" replace all occurences of visual selection
 	vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 	" new line on return
-	nmap <CR> o<ESC>
+	nnoremap <CR> o<ESC>
 	" switch between buffers
-	nmap <PageUp> :bp<CR>
-	nmap <PageDown> :bn<CR>
-	nmap <Home> :bf<CR>
-	nmap <End> :bl<CR>
+	nnoremap <PageUp> :bp<CR>
+	nnoremap <PageDown> :bn<CR>
+	nnoremap <Home> :bf<CR>
+	nnoremap <End> :bl<CR>
 	" copy, paste and cut
-	vmap <F2> "+y
-	vmap <F3> "+gP
-	vmap <F4> "+x
+	vnoremap <F2> "+y
+	nnoremap <F3> "+gP
+	vnoremap <F4> "+x
 	" remove whitespaces at line endings
-	nmap <F7> :%s/ \+$//ge\|%s/\t\+$//ge<CR>
+	nnoremap <F7> :%s/ \+$//ge\|%s/\t\+$//ge<CR>
 	" show errors (requires syntastic)
-	nmap <F8> :Errors<CR>
+	nnoremap <F8> :Errors<CR>
 	" switch list setting
-	nmap <F9> :call Toggle_tabs()<CR>
+	nnoremap <F9> :call Toggle_tabs()<CR>
 	" plugins
-	nmap <F10> :NERDTreeToggle<CR>
-	nmap <F11> :CommandT<CR>
-	nmap <F12> :TagbarToggle<CR>
+	nnoremap <F10> :NERDTreeToggle<CR>
+	nnoremap <F11> :CommandT<CR>
+	nnoremap <F12> :TagbarToggle<CR>
 " }
 
 " Autocommands {
@@ -114,16 +116,16 @@
 		au FileType python setlocal ts=4 sts=4 sw=4 et
 		au FileType ruby setlocal ts=2 sts=2 sw=2 et
 		au FileType eruby setlocal ts=2 sts=2 sw=2 et
-		augroup perl
-			au!
-			au BufNewFile *.pl 0r ~/.vim/skeleton.pl
-			au BufNewFile *.pl exe "normal 9G"
-		augroup END
-		augroup python
-			au!
-			au BufNewFile *.py 0r ~/.vim/skeleton.py
-			au BufNewFile *.py exe "normal 19G"
-		augroup END
+		" augroup perl
+		" 	au!
+		" 	au BufNewFile *.pl 0r ~/.vim/skeleton.pl
+		" 	au BufNewFile *.pl exe "normal 9G"
+		" augroup END
+		" augroup python
+		" 	au!
+		" 	au BufNewFile *.py 0r ~/.vim/skeleton.py
+		" 	au BufNewFile *.py exe "normal 19G"
+		" augroup END
 		augroup filtypedetect
 			au BufNewFile,BufRead *.h set filetype=c
 			au BufNewFile,BufRead *.scala set filetype=java
