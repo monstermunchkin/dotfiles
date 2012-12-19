@@ -86,8 +86,8 @@
 	nnoremap ,r :call RangerChooser()<CR>
 	" toggle fold under cursor
 	nnoremap <Space> za
-	" replace all occurences of visual selection
-	vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+	" Start the find and replace command across the entire file
+	vmap <C-r> <Esc>:%s/<c-r>=GetVisual()<cr>//gc<left><left><left>
 	" new line on return
 	nnoremap <CR> o<ESC>
 	" switch between buffers
@@ -117,14 +117,14 @@
 		au FileType ruby setlocal ts=2 sts=2 sw=2 et
 		au FileType eruby setlocal ts=2 sts=2 sw=2 et
 		" augroup perl
-		" 	au!
-		" 	au BufNewFile *.pl 0r ~/.vim/skeleton.pl
-		" 	au BufNewFile *.pl exe "normal 9G"
+		"	au!
+		"	au BufNewFile *.pl 0r ~/.vim/skeleton.pl
+		"	au BufNewFile *.pl exe "normal 9G"
 		" augroup END
 		" augroup python
-		" 	au!
-		" 	au BufNewFile *.py 0r ~/.vim/skeleton.py
-		" 	au BufNewFile *.py exe "normal 19G"
+		"	au!
+		"	au BufNewFile *.py 0r ~/.vim/skeleton.py
+		"	au BufNewFile *.py exe "normal 19G"
 		" augroup END
 		augroup filtypedetect
 			au BufNewFile,BufRead *.h set filetype=c
@@ -143,6 +143,11 @@
 	endif
 " }
 
+" Plugin settings {
+	let g:tagbar_autoclose=1
+	let g:tagbar_autofocus=1
+" }
+
 :function Toggle_tabs()
 	if &listchars == "tab:▸\ ,eol:¬"
 		set listchars=tab:\ \  "mind the whitespace
@@ -159,5 +164,41 @@ endfunction
 	endif
 	redraw!
 endfun
+
+" Escape special characters in a string for exact matching.
+" This is useful to copying strings from the file to the search tool
+" Based on this - http://peterodding.com/code/vim/profile/autoload/xolox/escape.vim
+function! EscapeString (string)
+	let string=a:string
+	" Escape regex characters
+	let string = escape(string, '^$.*\/~[]')
+	" Escape the line endings
+	let string = substitute(string, '\n', '\\n', 'g')
+	return string
+endfunction
+
+" Get the current visual block for search and replaces
+" This function passed the visual block through a string escape function
+" Based on this - http://stackoverflow.com/questions/676600/vim-replace-selected-text/677918#677918
+function! GetVisual() range
+	" Save the current register and clipboard
+	let reg_save = getreg('"')
+	let regtype_save = getregtype('"')
+	let cb_save = &clipboard
+	set clipboard&
+
+	" Put the current visual selection in the " register
+	normal! ""gvy
+	let selection = getreg('"')
+
+	" Put the saved registers and clipboards back
+	call setreg('"', reg_save, regtype_save)
+	let &clipboard = cb_save
+
+	"Escape any special characters in the selection
+	let escaped_selection = EscapeString(selection)
+
+	return escaped_selection
+endfunction
 
 " vim: syn=vim:
