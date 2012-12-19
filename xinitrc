@@ -27,6 +27,8 @@ case "${1}" in
 	*)
 		xset r rate 300 25
 		numlockx
+		# mimic xfce environment in order to use exo-preferred-applications
+		export DE=xfce
 		export BROWSER=chromium
 		export EDITOR=vim
 		exec dbus-launch --exit-with-session i3
