@@ -84,10 +84,14 @@
 
 " Mappings {
 	nnoremap ,r :call RangerChooser()<CR>
+	" double quote visual selection
+	vnoremap ,d c"<C-r>""
+	" single quote visual selection
+	vnoremap ,s c'<C-r>"'
 	" toggle fold under cursor
 	nnoremap <Space> za
 	" Start the find and replace command across the entire file
-	vmap <C-r> <Esc>:%s/<c-r>=GetVisual()<cr>//gc<left><left><left>
+	vnoremap <C-r> <Esc>:%s/<c-r>=GetVisual()<cr>//gc<left><left><left>
 	" new line on return
 	nnoremap <CR> o<ESC>
 	" switch between buffers
