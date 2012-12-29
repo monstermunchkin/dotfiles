@@ -1,52 +1,37 @@
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.oh-my-zsh
 
-autoload -U colors && colors
-autoload -U compinit && compinit
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="custom"
 
-HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=2000
-setopt INC_APPEND_HISTORY
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_IGNORE_SPACE
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
-setopt NO_BEEP
-setopt CORRECT
+# Set to this to use case-sensitive completion
+CASE_SENSITIVE="true"
 
-# Set prompt string
-if [[ -x /usr/bin/tput ]] && tput setaf 1 >/dev/null; then
-	if [[ "${UID}" -eq 0 ]]; then
-		# red username if root
-		PROMPT="%B%{$fg[red]%}%n%{$reset_color%}@%B%{$fg[blue]%}%m%{$reset_color%}%# "
-	else
-		PROMPT="%B%{$fg[green]%}%n%{$reset_color%}@%B%{$fg[blue]%}%m%{$reset_color%}%# "
-	fi
-else
-	PROMPT="%n@%m%# "
-fi
+# Comment this out to disable weekly auto-update checks
+# DISABLE_AUTO_UPDATE="true"
 
-# Set terminal title
-case "${TERM}" in
-    xterm*|rxvt*)
-		precmd () {print -Pn "e]0;%n@%m: %~a"}
-esac
+# Uncomment following line if you want to disable colors in ls
+# DISABLE_LS_COLORS="true"
 
-if [[ -x /usr/bin/dircolors ]]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || \
-        eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
+# Uncomment following line if you want to disable autosetting terminal title.
+# DISABLE_AUTO_TITLE="true"
 
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-alias vi='vim'
-alias sudo='sudo '
+# Uncomment following line if you want red dots to be displayed while waiting for completion
+# COMPLETION_WAITING_DOTS="true"
 
-test -x /usr/bin/lesspipe.sh && eval "$(SHELL=/bin/zsh lesspipe.sh)"
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(archlinux bundler django gem git pip python rbenv svn taskwarrior vagrant vi-mode history-substring-search)
+
+source $ZSH/oh-my-zsh.sh
+
+# Customize to your needs...
+#export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl

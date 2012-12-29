@@ -11,4 +11,5 @@ ln -fsv "${PWD}/i3status.conf" ~/.i3status.conf
 
 sudo ln -fsv "${PWD}/slim.conf" /etc/slim.conf
 
-ln -fsv "${PWD}/zprofile" ~/.zprofile
+sudo ln -fsv "${PWD}/zprofile" /etc/zsh/zprofile
+sudo ln -fsv "${PWD}/zshrc" /etc/zsh/zshrc
