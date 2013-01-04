@@ -1,6 +1,6 @@
 " General {
 	set nocompatible "use VIM settings
-	call pathogen#infect("~/.vim/bundle")
+	call pathogen#infect("/usr/local/share/vim/bundle")
 	if has("gui_running")
 		colorscheme wombat2562
 		set background=dark
