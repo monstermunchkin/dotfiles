@@ -1,6 +1,7 @@
 " General {
 	set nocompatible "use VIM settings
-	call pathogen#infect("/usr/local/share/vim/bundle")
+	set rtp+=/usr/local/share/vim/bundle/vundle
+	call vundle#rc()
 	if has("gui_running")
 		colorscheme wombat2562
 		set background=dark
@@ -27,6 +28,22 @@
 	set wildmode=list:longest,full "only start completion after seconds <TAB>
 	filetype plugin indent on
 	set backspace=indent,eol,start
+" }
+
+" Plugin settings {
+	let g:bundle_dir="/usr/local/share/vim/bundle"
+	let g:tagbar_autoclose=1
+	let g:tagbar_autofocus=1
+" }
+
+" Vundle {
+	Bundle 'gmarik/vundle'
+	Bundle 'scrooloose/nerdtree'
+	Bundle 'wincent/Command-T'
+	Bundle 'vim-scripts/ctagloader'
+	Bundle 'scrooloose/syntastic'
+	Bundle 'majutsushi/tagbar'
+	Bundle 'thinca/vim-visualstar'
 " }
 
 " VIM UI {
@@ -130,7 +147,7 @@
 		"	au BufNewFile *.py 0r ~/.vim/skeleton.py
 		"	au BufNewFile *.py exe "normal 19G"
 		" augroup END
-		augroup filtypedetect
+		augroup filetypedetect
 			au BufNewFile,BufRead *.h set filetype=c
 			au BufNewFile,BufRead *.scala set filetype=java
 		augroup END
@@ -145,11 +162,6 @@
 		set guioptions-=r "remove right-hand scroll bar
 		set guifont=DejaVu\ Sans\ Mono\ 9
 	endif
-" }
-
-" Plugin settings {
-	let g:tagbar_autoclose=1
-	let g:tagbar_autofocus=1
 " }
 
 :function Toggle_tabs()
