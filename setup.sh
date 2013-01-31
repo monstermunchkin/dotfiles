@@ -8,6 +8,7 @@ ln -fsv "${PWD}/Xresources" ~/.Xresources
 
 ln -fsv "${PWD}/i3config" ~/.i3/config
 ln -fsv "${PWD}/i3status.conf" ~/.i3status.conf
+sudo ln -fsv "${PWD}/i3swrapper" /usr/local/bin/i3swrapper
 
 sudo ln -fsv "${PWD}/slim.conf" /etc/slim.conf
 
