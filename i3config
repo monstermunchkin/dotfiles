@@ -178,6 +178,7 @@ for_window [class="Pidgin"] floating enable border normal
 for_window [class="Gajim"] floating enable border normal
 for_window [class="Xfce4-notifyd"] floating enable border normal
 for_window [class="Thunar" title="File Operation Progress"] floating enable border normal
+for_window [class="Steam"] floating enable border normal
 
 # workspace settings
 #assign [class="Chromium"] 1
