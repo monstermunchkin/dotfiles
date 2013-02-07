@@ -44,6 +44,7 @@
 	Bundle 'scrooloose/syntastic'
 	Bundle 'majutsushi/tagbar'
 	Bundle 'thinca/vim-visualstar'
+	Bundle 'nvie/vim-flake8'
 " }
 
 " VIM UI {
