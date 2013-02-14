@@ -11,6 +11,7 @@ URxvt*font: xft:Monospace:size=9
 URxvt*scrollBar: off
 URxvt*geometry: 85x25
 URxvt*secondaryScroll: off
+URxvt*urgentOnBell: true
 
 ! COLORS AND GRAPHICS
 ! 
