@@ -136,8 +136,9 @@
 " Autocommands {
 	if has("autocmd")
 		au FileType python setlocal ts=4 sts=4 sw=4 et
-		au FileType ruby setlocal ts=2 sts=2 sw=2 et
-		au FileType eruby setlocal ts=2 sts=2 sw=2 et
+		au FileType ruby,eruby,javascript setlocal ts=2 sts=2 sw=2 et
+		" remove trailing whitespace on save
+		au BufWrite * :%s/\( \|\t\)\+$//e
 		" augroup perl
 		"	au!
 		"	au BufNewFile *.pl 0r ~/.vim/skeleton.pl
