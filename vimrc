@@ -123,8 +123,8 @@
 	vnoremap <F4> "+x
 	" show errors (requires syntastic)
 	nnoremap <F6> :Errors<CR>
-	" remove whitespaces at line endings
-	nnoremap <F8> :%s/ \+$//ge\|%s/\t\+$//ge<CR>
+	" remove trailing whitespace
+	nnoremap <F8> :%s/\( \\|\t\)\+$//e<CR>
 	" switch list setting
 	nnoremap <F9> :call Toggle_tabs()<CR>
 	" plugins
