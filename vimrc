@@ -45,6 +45,7 @@
 	Bundle 'majutsushi/tagbar'
 	Bundle 'thinca/vim-visualstar'
 	Bundle 'nvie/vim-flake8'
+	Bundle 'vim-scripts/bufkill.vim'
 " }
 
 " VIM UI {
