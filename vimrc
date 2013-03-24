@@ -159,10 +159,12 @@
 " GVIM settings {
 	if has("gui_running")
 		set columns=87
-		set guioptions-=m "remove menu bar
-		set guioptions-=T "remove toolbar
-		set guioptions-=r "remove right-hand scroll bar
+		" set guioptions-=m "remove menu bar
+		" set guioptions-=T "remove toolbar
+		" set guioptions-=r "remove right-hand scroll bar
 		set guifont=DejaVu\ Sans\ Mono\ 9
+		set guitablabel=%t\ %m
+		set noballooneval "disable popup messages
 	endif
 " }
 
