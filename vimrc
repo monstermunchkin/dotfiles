@@ -222,4 +222,7 @@ function! GetVisual() range
 	return escaped_selection
 endfunction
 
+set exrc "read vimrc in current directory
+set secure "prevent local vimrc from doing nasty things
+
 " vim: syn=vim:
