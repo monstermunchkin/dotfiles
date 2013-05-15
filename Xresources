@@ -5,7 +5,7 @@ Xft.rgba: rgb
 Xft.hinting: true
 Xft.hintstyle: hintfull
 Xft.lcdfilter: lcdnone
-URxvt*font: xft:Monospace:size=9
+URxvt*font: xft:DejaVu Sans Mono:size=9
 
 ! window
 URxvt*scrollBar: off
@@ -14,13 +14,13 @@ URxvt*secondaryScroll: off
 URxvt*urgentOnBell: true
 
 ! COLORS AND GRAPHICS
-! 
+!
 ! If graphics support was enabled at compile-time, rxvt can be queried with ANSI escape sequences and can address individual pixels instead of text
 ! characters. Note the graphics support is still considered beta code.
-! 
+!
 ! In addition to the default foreground and background colours, rxvt can display up to 16 colours (8 ANSI colours plus high-intensity bold/blink
 ! versions of the same). Here is a list of the colours with their rgb.txt names.
-! 
+!
 ! color0 	(black) 	= Black
 ! color1 	(red) 	        = Red3
 ! color2 	(green) 	= Green3
@@ -39,7 +39,7 @@ URxvt*urgentOnBell: true
 ! color15 (bright white) 	= White
 ! foreground 		= Black
 ! background 		= White
-! 
+!
 ! It is also possible to specify the colour values of foreground, background, cursorColor, cursorColor2, colorBD, colorUL as a number 0-15, as a
 ! convenient shorthand to reference the colour name of color0-color15.
 
