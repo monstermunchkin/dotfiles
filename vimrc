@@ -2,13 +2,7 @@
 	set nocompatible "use VIM settings
 	set rtp+=/usr/local/share/vim/bundle/vundle
 	call vundle#rc()
-	if has("gui_running")
-		colorscheme wombat2562
-		set background=dark
-	else
-		colorscheme wombat2562
-		set background=dark "syntax colors for dark background
-	endif
+	set background=dark
 	if has("syntax")
 		syntax enable "enable syntax
 	endif
@@ -46,9 +40,11 @@
 	Bundle 'thinca/vim-visualstar'
 	Bundle 'nvie/vim-flake8'
 	Bundle 'vim-scripts/bufkill.vim'
+	Bundle 'flazz/vim-colorschemes'
 " }
 
 " VIM UI {
+	colorscheme molokai "theme has to be set after the Bundle
 	set number "set line numbers
 	if has("linebreak")
 		set numberwidth=5 "allow room for lots of lines
