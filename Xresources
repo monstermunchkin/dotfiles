@@ -1,11 +1,5 @@
 ! font
-Xft.dpi: 96
-Xft.antialias: true
-Xft.rgba: rgb
-Xft.hinting: true
-Xft.hintstyle: hintfull
-Xft.lcdfilter: lcdnone
-URxvt*font: xft:DejaVu Sans Mono:size=9
+URxvt*font: xft:Source Code Pro:size=11:rgba=none
 
 ! window
 URxvt*scrollBar: off
