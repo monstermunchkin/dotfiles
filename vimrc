@@ -159,7 +159,7 @@
 		" set guioptions-=m "remove menu bar
 		" set guioptions-=T "remove toolbar
 		" set guioptions-=r "remove right-hand scroll bar
-		set guifont=DejaVu\ Sans\ Mono\ 9
+		set guifont=Source\ Code\ Pro\ 11
 		set guitablabel=%t\ %m
 		set noballooneval "disable popup messages
 	endif
