@@ -121,7 +121,7 @@
 	" show errors (requires syntastic)
 	nnoremap <F6> :Errors<CR>
 	" remove trailing whitespace
-	nnoremap <F8> :%s/\( \\|\t\)\+$//e<CR>
+	nnoremap <F8> :call RemoveTrailingWhitespace()<CR>
 	" switch list setting
 	nnoremap <F9> :call Toggle_tabs()<CR>
 	" plugins
@@ -135,7 +135,7 @@
 		au FileType python setlocal ts=4 sts=4 sw=4 et
 		au FileType ruby,eruby,javascript,yaml setlocal ts=2 sts=2 sw=2 et
 		" remove trailing whitespace on save
-		au BufWrite * :%s/\( \|\t\)\+$//e
+		au BufWrite * call RemoveTrailingWhitespace()
 		" augroup perl
 		"	au!
 		"	au BufNewFile *.pl 0r ~/.vim/skeleton.pl
@@ -216,6 +216,12 @@ function! GetVisual() range
 	let escaped_selection = EscapeString(selection)
 
 	return escaped_selection
+endfunction
+
+function RemoveTrailingWhitespace()
+	let cursor = getpos(".")
+	exec ":%s/\\( \\|\t\\)\\+$//e"
+	call setpos(".", cursor)
 endfunction
 
 set exrc "read vimrc in current directory
