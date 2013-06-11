@@ -165,7 +165,7 @@ bindsym Mod1+o scratchpad show
 bindcode 122 exec amixer set Master 2%-
 bindcode 121 exec amixer set Master toggle
 bindcode 123 exec amixer set Master 2%+
-#bindcode 248 exec amixer set Mic toggle
+bindcode 198 exec tpmic toggle
 
 # hotkeys: next, play/pause, previous
 bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
@@ -191,6 +191,7 @@ exec nitrogen --restore
 exec dropboxd
 exec urxvtd
 exec xautolock
+exec tpmic init
 
 # screen layout
 # BEGIN LAYOUT
