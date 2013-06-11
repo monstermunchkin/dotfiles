@@ -22,6 +22,7 @@
 	set wildmode=list:longest,full "only start completion after seconds <TAB>
 	filetype plugin indent on
 	set backspace=indent,eol,start
+	set autoread "automatically reload a file if its file mode has changed
 " }
 
 " Plugin settings {
@@ -41,6 +42,7 @@
 	Bundle 'nvie/vim-flake8'
 	Bundle 'vim-scripts/bufkill.vim'
 	Bundle 'flazz/vim-colorschemes'
+	Bundle 'tpope/vim-unimpaired'
 " }
 
 " VIM UI {
@@ -98,11 +100,14 @@
 " }
 
 " Mappings {
-	nnoremap ,r :call RangerChooser()<CR>
+	let mapleader = ','
+	if !has("gui_running")
+		nnoremap <Leader>r :call RangerChooser()<CR>
+	endif
 	" double quote visual selection
-	vnoremap ,d c"<C-r>""
+	vnoremap <Leader>d c"<C-r>""
 	" single quote visual selection
-	vnoremap ,s c'<C-r>"'
+	vnoremap <Leader>s c'<C-r>"'
 	" toggle fold under cursor
 	nnoremap <Space> za
 	" Start the find and replace command across the entire file
@@ -121,13 +126,18 @@
 	" show errors (requires syntastic)
 	nnoremap <F6> :Errors<CR>
 	" remove trailing whitespace
-	nnoremap <F8> :call RemoveTrailingWhitespace()<CR>
+	nnoremap <F8> :call Preserve("%s/\\( \\\|\t\\)\\+$//e")<CR>
 	" switch list setting
 	nnoremap <F9> :call Toggle_tabs()<CR>
 	" plugins
 	nnoremap <F10> :NERDTreeToggle<CR>
 	nnoremap <F11> :CommandT<CR>
 	nnoremap <F12> :TagbarToggle<CR>
+	" bubbling text
+	nmap <C-Up> [e
+	nmap <C-Down> ]e
+	vmap <C-Up> [egv
+	vmap <C-Down> ]egv
 " }
 
 " Autocommands {
@@ -135,7 +145,7 @@
 		au FileType python setlocal ts=4 sts=4 sw=4 et
 		au FileType ruby,eruby,javascript,yaml setlocal ts=2 sts=2 sw=2 et
 		" remove trailing whitespace on save
-		au BufWrite * call RemoveTrailingWhitespace()
+		au BufWrite * call Preserve("%s/\\( \\\|\t\\)\\+$//e")
 		" augroup perl
 		"	au!
 		"	au BufNewFile *.pl 0r ~/.vim/skeleton.pl
@@ -161,11 +171,13 @@
 		" set guioptions-=r "remove right-hand scroll bar
 		set guifont=Source\ Code\ Pro\ 11
 		set guitablabel=%t\ %m
-		set noballooneval "disable popup messages
+		if has("balloon_eval")
+			set noballooneval "disable popup messages
+		endif
 	endif
 " }
 
-:function Toggle_tabs()
+function! Toggle_tabs()
 	if &listchars == "tab:▸\ ,eol:¬"
 		set listchars=tab:\ \  "mind the whitespace
 	else
@@ -173,14 +185,14 @@
 	endif
 endfunction
 
-:function RangerChooser()
+function! RangerChooser()
 	exec "silent !ranger --choosefile=/tmp/chosenfile " . expand("%:p:h")
 	if filereadable('/tmp/chosenfile')
 		exec 'edit ' . system('cat /tmp/chosenfile')
 		call system('rm /tmp/chosenfile')
 	endif
 	redraw!
-endfun
+endfunction
 
 " Escape special characters in a string for exact matching.
 " This is useful to copying strings from the file to the search tool
@@ -218,10 +230,16 @@ function! GetVisual() range
 	return escaped_selection
 endfunction
 
-function RemoveTrailingWhitespace()
-	let cursor = getpos(".")
-	exec ":%s/\\( \\|\t\\)\\+$//e"
-	call setpos(".", cursor)
+function! Preserve(command)
+	" Preparation: save last search, and cursor position.
+	let _s=@/
+	let l = line(".")
+	let c = col(".")
+	" Do the business:
+	execute a:command
+	" Clean up: restore previous search history, and cursor position
+	let @/=_s
+	call cursor(l, c)
 endfunction
 
 set exrc "read vimrc in current directory
