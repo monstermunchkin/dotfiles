@@ -1,5 +1,5 @@
 ! font
-URxvt*font: xft:Source Code Pro:size=11:rgba=none
+URxvt*font: xft:Source Code Pro:size=11:rgba=none,xft:Source Code Pro Light:size=11
 
 ! window
 URxvt*scrollBar: off
