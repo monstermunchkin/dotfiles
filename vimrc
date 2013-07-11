@@ -29,6 +29,7 @@
 	let g:bundle_dir="/usr/local/share/vim/bundle"
 	let g:tagbar_autoclose=1
 	let g:tagbar_autofocus=1
+	let g:NumberToggleTrigger="<F5>"
 " }
 
 " Vundle {
@@ -43,6 +44,8 @@
 	Bundle 'vim-scripts/bufkill.vim'
 	Bundle 'flazz/vim-colorschemes'
 	Bundle 'tpope/vim-unimpaired'
+	Bundle 'monstermunchkin/vim-numbertoggle'
+	Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 " }
 
 " VIM UI {
