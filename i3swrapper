@@ -30,7 +30,7 @@ re_mem = re.compile(r'(MemFree|Buffers|Cached):')
 # http://blogs.perl.org/users/ovid/2010/12/perl101-red-to-green-gradient.html
 
 
-def gradient(lo, hi):
+def gradient(lo, hi, threshold=None):
 
     def get_color(val):
         if val <= lo:
@@ -45,9 +45,12 @@ def gradient(lo, hi):
     def func(val):
         return colors[bisect_left(breakpoints, val)]
 
-    # get total memory
-    with open('/proc/meminfo') as f:
-        mem_total = int(f.readline().split()[1])
+    if threshold:
+        mem_total = threshold
+    else:
+        # get total memory
+        with open('/proc/meminfo') as f:
+            mem_total = int(f.readline().split()[1])
     mid = (lo + hi) / 2
     scale = 255 / (mid - lo)
     colors = [get_color(i) for i in range(lo, hi + 1)]
@@ -85,7 +88,7 @@ def read_line():
 
 if __name__ == '__main__':
     # divide memory into four color segments
-    mem_color = gradient(0, 3)
+    mem_color = gradient(0, 3, 1024000)
 
     # Skip the first line which contains the version header.
     print_line(read_line())
