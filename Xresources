@@ -93,7 +93,7 @@ URxvt.keysym.Control-Mod4-v: perl:clipboard:paste_escaped
 URxvt*iso14755: false
 URxvt*iso14755_52: false
 
-Xautolock.locker: /usr/local/bin/i3lock_pixelate
+Xautolock.locker: /usr/bin/i3lock -t -i /usr/local/share/wallpapers/background
 Xautolock.time: 10
 
 URxvt*modifier: super
