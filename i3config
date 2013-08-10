@@ -80,6 +80,7 @@ bindsym Mod1+space focus mode_toggle
 
 # focus the parent container
 bindsym Mod1+a focus parent
+bindsym Mod1+c focus child
 
 # focus the child container
 #bindsym Mod1+d focus child
@@ -115,7 +116,7 @@ bindsym Mod1+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym Mod1+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # rename current workspace
-bindsym Mod1+t exec i3-input -F 'rename workspace to %s' -P 'New name: '
+bindsym Mod1+t exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
