@@ -30,6 +30,7 @@
 	let g:tagbar_autoclose=1
 	let g:tagbar_autofocus=1
 	let g:NumberToggleTrigger="<F5>"
+	let g:relativemode=0 "turn relative numbering off by default
 " }
 
 " Vundle {
