@@ -193,6 +193,7 @@ exec dropboxd
 exec urxvtd
 exec xautolock
 exec tpmic init
+exec batnag
 
 # screen layout
 # BEGIN LAYOUT
