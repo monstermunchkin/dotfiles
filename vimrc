@@ -31,6 +31,10 @@
 	let g:tagbar_autofocus=1
 	let g:NumberToggleTrigger="<F5>"
 	let g:relativemode=0 "turn relative numbering off by default
+	let g:airline_powerline_fonts=1
+	let g:airline_enable_syntastic=0
+	let g:airline_section_c="%F%m"
+	let g:airline_section_z="%4L %{g:airline_linecolumn_prefix}%4l:%4v (%3p%%)"
 " }
 
 " Vundle {
@@ -46,7 +50,7 @@
 	Bundle 'flazz/vim-colorschemes'
 	Bundle 'tpope/vim-unimpaired'
 	Bundle 'monstermunchkin/vim-numbertoggle'
-	Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+	Bundle 'bling/vim-airline'
 " }
 
 " VIM UI {
