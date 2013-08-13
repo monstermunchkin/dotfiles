@@ -33,8 +33,12 @@
 	let g:relativemode=0 "turn relative numbering off by default
 	let g:airline_powerline_fonts=1
 	let g:airline_enable_syntastic=0
+	let g:airline_enable_tagbar=0
+	let g:airline_detect_whitespace=0
 	let g:airline_section_c="%F%m"
+	let g:airline_section_y="%{strlen(&ff)>0?&ff:''}"
 	let g:airline_section_z="%4L %{g:airline_linecolumn_prefix}%4l:%4v (%3p%%)"
+	let g:airline_theme='molokai'
 " }
 
 " Vundle {
