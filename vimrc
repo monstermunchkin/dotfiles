@@ -51,10 +51,11 @@
 	Bundle 'thinca/vim-visualstar'
 	Bundle 'nvie/vim-flake8'
 	Bundle 'vim-scripts/bufkill.vim'
-	Bundle 'flazz/vim-colorschemes'
+	Bundle 'tomasr/molokai'
 	Bundle 'tpope/vim-unimpaired'
 	Bundle 'monstermunchkin/vim-numbertoggle'
 	Bundle 'bling/vim-airline'
+	Bundle 'tpope/vim-fugitive'
 " }
 
 " VIM UI {
