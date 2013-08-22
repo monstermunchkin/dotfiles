@@ -39,6 +39,8 @@
 	let g:airline_section_y="%{strlen(&ff)>0?&ff:''}"
 	let g:airline_section_z="%4L %{g:airline_linecolumn_prefix}%4l:%4v (%3p%%)"
 	let g:airline_theme='molokai'
+	let g:gitgutter_realtime=0
+	let g:gitgutter_eager=0
 " }
 
 " Vundle {
@@ -56,6 +58,7 @@
 	Bundle 'monstermunchkin/vim-numbertoggle'
 	Bundle 'bling/vim-airline'
 	Bundle 'tpope/vim-fugitive'
+	Bundle 'airblade/vim-gitgutter'
 " }
 
 " VIM UI {
