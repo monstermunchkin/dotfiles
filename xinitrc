@@ -22,7 +22,7 @@ xrdb ~/.Xresources
 
 case "${1}" in
 	xfce4)
-		exec dbus-launch --exit-with-session startxfce4
+		exec startxfce4
 		;;
 	*)
 		xset r rate 300 25
@@ -31,7 +31,7 @@ case "${1}" in
 		export DE=xfce
 		export BROWSER=chromium
 		export EDITOR=vim
-		exec dbus-launch --exit-with-session i3
+		exec i3
 		;;
 esac
 
