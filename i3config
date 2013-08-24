@@ -175,6 +175,8 @@ bindsym XF86AudioPrev exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2
 
 # other bindings
 bindsym XF86ScreenSaver exec xautolock -locknow
+bindsym Mod1+Print exec scrot -m
+bindsym Mod1+Shift+Print exec scrot -s
 
 # floating mode
 for_window [class="Pidgin"] floating enable border normal
