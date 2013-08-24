@@ -191,7 +191,6 @@ for_window [class="Steam"] floating enable border normal
 
 # programs
 exec nitrogen --restore
-exec dropboxd
 exec urxvtd
 exec xautolock
 exec tpmic init
