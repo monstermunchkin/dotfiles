@@ -121,9 +121,9 @@
 		nnoremap <Leader>r :call RangerChooser()<CR>
 	endif
 	" double quote visual selection
-	vnoremap <Leader>d c"<C-r>""
+	vnoremap <Leader>d c"<C-r>""<ESC>
 	" single quote visual selection
-	vnoremap <Leader>s c'<C-r>"'
+	vnoremap <Leader>s c'<C-r>"'<ESC>
 	" toggle fold under cursor
 	nnoremap <Space> za
 	" Start the find and replace command across the entire file
