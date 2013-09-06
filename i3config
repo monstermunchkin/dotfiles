@@ -22,7 +22,7 @@ font pango:DejaVu Sans 9
 floating_modifier Mod1
 
 # start a terminal
-bindsym Mod1+Return exec urxvtc
+bindsym Mod1+Return exec urxvt
 
 # kill focused window
 bindsym Mod1+Shift+q kill
