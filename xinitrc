@@ -15,8 +15,8 @@ if [[ -f "${HOME}/.Xmodmap" ]]; then
 	xmodmap "${HOME}/.Xmodmap"
 fi
 
-eval "$(gpg-agent --daemon --default-cache-ttl-ssh 86400\
-	--default-cache-ttl 86400 --max-cache-ttl 86400 --max-cache-ttl-ssh 86400)"
+eval "$(gpg-agent --daemon --enable-ssh-support \
+	--write-env-file ${HOME}/.gpg-agent-info)"
 
 xrdb ~/.Xresources
 
