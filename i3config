@@ -184,6 +184,7 @@ for_window [class="Gajim"] floating enable border normal
 for_window [class="Xfce4-notifyd"] floating enable border normal
 for_window [class="Thunar" title="File Operation Progress"] floating enable border normal
 for_window [class="Steam"] floating enable border normal
+for_window [class="Chromium" window_role="pop-up"] floating enable border normal
 
 # workspace settings
 #assign [class="Chromium"] 1
@@ -191,10 +192,9 @@ for_window [class="Steam"] floating enable border normal
 
 # programs
 exec nitrogen --restore
-exec urxvtd
-exec xautolock
+#exec urxvtd
 exec tpmic init
-exec batnag
+exec xautolock
 
 # screen layout
 # BEGIN LAYOUT
