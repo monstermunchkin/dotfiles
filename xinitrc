@@ -11,30 +11,15 @@ if [[ -d /etc/X11/xinit/xinitrc.d ]]; then
 	unset f
 fi
 
-if [[ -f "${HOME}/.Xmodmap" ]]; then
-	xmodmap "${HOME}/.Xmodmap"
-fi
+systemctl --user isolate graphical.target
 
-eval "$(gpg-agent --daemon --enable-ssh-support \
-	--write-env-file ${HOME}/.gpg-agent-info)"
+# mimic gnome environment in order to use exo-preferred-applications
+# gnome env will also recognize magnet link handlers for chromium
+export DE=gnome
+export BROWSER=chromium
+export EDITOR=vim
 
-xrdb ~/.Xresources
-
-case "${1}" in
-	xfce4)
-		exec startxfce4
-		;;
-	*)
-		xset r rate 300 25
-		numlockx
-		# mimic xfce environment in order to use exo-preferred-applications
-		export DE=xfce
-		export BROWSER=chromium
-		export EDITOR=vim
-		exec i3
-		;;
-esac
-
+exec "${1}"
 
 # exec gnome-session
 # exec startkde
