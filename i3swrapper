@@ -23,6 +23,9 @@ from bisect import bisect_left
 import json
 import re
 import sys
+import types
+
+import dbus
 
 re_mem = re.compile(r'(MemFree|Buffers|Cached):')
 
@@ -60,11 +63,59 @@ def gradient(lo, hi, threshold=None):
     return func
 
 
+def ticker(s, width, wrap=True):
+    if wrap and width > len(s):
+            ringbuf = list(s) * (width // len(s))
+            ringbuf.extend(s)
+    else:
+        ringbuf = list(s)
+
+    if wrap:
+        while True:
+            yield ''.join(ringbuf[:width])
+            first = ringbuf.pop(0)
+            ringbuf.append(first)
+    else:
+        i = len(s)
+        while i:
+            yield ''.join(ringbuf[:width])
+            first = ringbuf.pop(0)
+            ringbuf.append(' ')
+            i = i - 1
+        raise StopIteration
+
+
 def get_memory():
     """ Get memory from /proc/meminfo. """
     with open('/proc/meminfo') as f:
         return sum(map(lambda x: int(x.split()[1]),
                    filter(re_mem.match, f.readlines())))
+
+
+def spotify_ticker():
+    last_song = ''
+    t = None
+    bus = dbus.SessionBus()
+    proxy = bus.get_object('org.mpris.MediaPlayer2.spotify',
+                           '/org/mpris/MediaPlayer2')
+    properties_manager = dbus.Interface(
+        proxy,
+        'org.freedesktop.DBus.Properties')
+    while True:
+        metadata = properties_manager.Get('org.mpris.MediaPlayer2.Player',
+                                          'Metadata')
+
+        artist = metadata.get('xesam:artist', ['Unknown'])[0]
+        title = metadata.get('xesam:title', 'Unknown')
+        current_song = ' +++ '.join([' - '.join([artist, title]), ''])
+
+        if last_song != current_song:
+            # new song
+            last_song = current_song
+            if isinstance(t, types.GeneratorType):
+                t.close()
+            t = ticker(last_song, 30, wrap=True)
+        yield next(t)
 
 
 def print_line(message):
@@ -96,6 +147,8 @@ if __name__ == '__main__':
     # The second line contains the start of the infinite array.
     print_line(read_line())
 
+    spotify = spotify_ticker()
+
     while True:
         line, prefix = read_line(), ''
         # ignore comma at start of lines
@@ -108,5 +161,10 @@ if __name__ == '__main__':
         memory = get_memory()
         j.insert(0, {'full_text': 'Mem: {} MB'.format(memory // 1024),
                  'name': 'mem_info', 'color': mem_color(memory)})
+        # now playing
+        try:
+            j.insert(0, {'full_text': next(spotify), 'name': 'spotify'})
+        except:
+            spotify = spotify_ticker()
         # and echo back new encoded json
         print_line(''.join([prefix, json.dumps(j)]))
