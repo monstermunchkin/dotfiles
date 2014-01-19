@@ -15,7 +15,7 @@ ZSH_THEME="custom"
 CASE_SENSITIVE="true"
 
 # Comment this out to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment to change how often before auto-updates occur? (in days)
 # export UPDATE_ZSH_DAYS=13
@@ -40,7 +40,7 @@ DISABLE_CORRECTION="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(archlinux django gem git jump pip python rbenv bundler svn vagrant vi-mode history-substring-search)
+plugins=(archlinux gem git jump pip python rbenv bundler vi-mode history-substring-search zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
