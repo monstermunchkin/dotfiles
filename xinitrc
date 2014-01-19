@@ -15,11 +15,13 @@ systemctl --user isolate graphical.target
 
 # mimic gnome environment in order to use exo-preferred-applications
 # gnome env will also recognize magnet link handlers for chromium
+
 export DE=gnome
-export BROWSER=chromium
+export BROWSER=firefox
 export EDITOR=vim
 
-exec "${1}"
+#exec "${1}"
+exec i3
 
 # exec gnome-session
 # exec startkde
