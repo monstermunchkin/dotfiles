@@ -149,6 +149,7 @@ bindsym Mod1+r mode "resize"
 bar {
         status_command i3status | /usr/local/bin/i3swrapper
         tray_output primary
+		position top
 }
 
 #
@@ -185,6 +186,8 @@ for_window [class="Xfce4-notifyd"] floating enable border normal
 for_window [class="Thunar" title="File Operation Progress"] floating enable border normal
 for_window [class="Steam"] floating enable border normal
 for_window [class="Chromium" window_role="pop-up"] floating enable border normal
+for_window [class="Firefox" title="Firefox Preferences"] floating enable border normal
+for_window [class="Thunderbird" title="Thunderbird Preferences"] floating enable border normal
 
 # workspace settings
 #assign [class="Chromium"] 1
@@ -195,6 +198,7 @@ exec nitrogen --restore
 #exec urxvtd
 exec tpmic init
 exec xautolock
+exec pasystray
 
 # screen layout
 # BEGIN LAYOUT
