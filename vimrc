@@ -60,6 +60,7 @@
 	Bundle 'bling/vim-airline'
 	Bundle 'tpope/vim-fugitive'
 	Bundle 'airblade/vim-gitgutter'
+	Bundle 'tpope/vim-surround'
 " }
 
 " VIM UI {
@@ -99,9 +100,9 @@
 " }
 
 " Layout/Formatting {
-	set ts=4 "set tabstop
-	set sts=4 "set softtabstop (takes precedence over tabstop)
-	set sw=4 "set shiftwidth
+	set ts=8 "set tabstop
+	set sts=8 "set softtabstop (takes precedence over tabstop)
+	set sw=8 "set shiftwidth
 	set noexpandtab "use tabs by default
 	set autoindent "use the indent of the previous line for a new one
 	set formatoptions=r "insert comment on return
@@ -121,14 +122,24 @@
 	if !has("gui_running")
 		nnoremap <Leader>r :call RangerChooser()<CR>
 	endif
-	" double quote visual selection
-	vnoremap <Leader>d c"<C-r>""<ESC>
-	" single quote visual selection
-	vnoremap <Leader>s c'<C-r>"'<ESC>
+	" enclose visual selection
+	vnoremap <Leader>" c"<C-r>"'<ESC>
+	vnoremap <Leader>' c"<C-r>"'<ESC>
+	vnoremap <Leader>{ c{ <C-r>" }<ESC>
+	vnoremap <Leader>} c{<C-r>"}<ESC>
+	vnoremap <Leader>[ c[ <C-r>" ]<ESC>
+	vnoremap <Leader>] c[<C-r>"]<ESC>
+	vnoremap <Leader>( c( <C-r>" )<ESC>
+	vnoremap <Leader>) c(<C-r>")<ESC>
+	" multiline comment
+	vnoremap <Leader># :s/^/# /<CR>
+	" block comment (needs visual line)
+	vnoremap <Leader>c c/*<CR><C-r>"/<ESC>
+
 	" toggle fold under cursor
 	nnoremap <Space> za
 	" Start the find and replace command across the entire file
-	vnoremap <C-r> <Esc>:%s/<c-r>=GetVisual()<cr>//gc<left><left><left>
+	vnoremap <C-r> :s/<C-r>=GetVisual()<CR>//gc<left><left><left>
 	" new line on return
 	nnoremap <CR> o<ESC>
 	" switch between buffers
@@ -136,6 +147,8 @@
 	nnoremap <PageDown> :bn<CR>
 	nnoremap <Home> :bf<CR>
 	nnoremap <End> :bl<CR>
+	" spell checking
+	nnoremap <silent> <Leader>s :set spell!<CR>
 	" copy, paste and cut
 	vnoremap <F2> "+y
 	nnoremap <F3> "+gP
@@ -160,7 +173,7 @@
 " Autocommands {
 	if has("autocmd")
 		au FileType python setlocal ts=4 sts=4 sw=4 et
-		au FileType ruby,eruby,javascript,yaml setlocal ts=2 sts=2 sw=2 et
+		au FileType ruby,eruby,javascript,yaml,tex,plaintex setlocal ts=2 sts=2 sw=2 et
 		" remove trailing whitespace on save
 		au BufWrite * call Preserve("%s/\\( \\\|\t\\)\\+$//e")
 		" augroup perl
@@ -176,6 +189,7 @@
 		augroup filetypedetect
 			au BufNewFile,BufRead *.h set filetype=c
 			au BufNewFile,BufRead *.scala set filetype=java
+			au BufNewFile,BufRead CMakeLists set filetype=cmake
 		augroup END
 	endif
 " }
@@ -184,7 +198,7 @@
 	if has("gui_running")
 		set columns=87
 		" set guioptions-=m "remove menu bar
-		" set guioptions-=T "remove toolbar
+		set guioptions-=T "remove toolbar
 		" set guioptions-=r "remove right-hand scroll bar
 		set guifont=Source\ Code\ Pro\ 11
 		set guitablabel=%t\ %m
@@ -262,4 +276,4 @@ endfunction
 set exrc "read vimrc in current directory
 set secure "prevent local vimrc from doing nasty things
 
-" vim: syn=vim:
+" vim: set syn=vim:
