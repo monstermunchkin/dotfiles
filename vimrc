@@ -127,8 +127,8 @@
 		nnoremap <Leader>r :call RangerChooser()<CR>
 	endif
 	" enclose visual selection
-	vnoremap <Leader>" c"<C-r>"'<ESC>
-	vnoremap <Leader>' c"<C-r>"'<ESC>
+	vnoremap <Leader>" c"<C-r>""<ESC>
+	vnoremap <Leader>' c'<C-r>"'<ESC>
 	vnoremap <Leader>{ c{ <C-r>" }<ESC>
 	vnoremap <Leader>} c{<C-r>"}<ESC>
 	vnoremap <Leader>[ c[ <C-r>" ]<ESC>
@@ -138,7 +138,7 @@
 	" toggle fold under cursor
 	nnoremap <Space> za
 	" Start the find and replace command across the entire file
-	vnoremap <C-r> :s/<C-r>=GetVisual()<CR>//gc<left><left><left>
+	vnoremap <C-r> <ESC>:%s/<C-r>=GetVisual()<CR>//gc<left><left><left>
 	" new line on return
 	nnoremap <CR> o<ESC>
 	" switch between buffers
