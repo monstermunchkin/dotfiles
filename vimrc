@@ -61,6 +61,7 @@
 	Bundle 'tpope/vim-fugitive'
 	Bundle 'airblade/vim-gitgutter'
 	Bundle 'tpope/vim-surround'
+	Bundle 'scrooloose/nerdcommenter'
 " }
 
 " VIM UI {
@@ -131,11 +132,6 @@
 	vnoremap <Leader>] c[<C-r>"]<ESC>
 	vnoremap <Leader>( c( <C-r>" )<ESC>
 	vnoremap <Leader>) c(<C-r>")<ESC>
-	" multiline comment
-	vnoremap <Leader># :s/^/# /<CR>
-	" block comment (needs visual line)
-	vnoremap <Leader>c c/*<CR><C-r>"/<ESC>
-
 	" toggle fold under cursor
 	nnoremap <Space> za
 	" Start the find and replace command across the entire file
