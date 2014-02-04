@@ -98,6 +98,9 @@
 		"              | + readonly flag
 		"              + filename
 	endif
+	if exists('+colorcolumn')
+		set colorcolumn=80 "display vertical line in column 80
+	endif
 " }
 
 " Layout/Formatting {
