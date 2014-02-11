@@ -175,6 +175,7 @@
 	if has("autocmd")
 		au FileType python setlocal ts=4 sts=4 sw=4 et
 		au FileType ruby,eruby,javascript,yaml,tex,plaintex setlocal ts=2 sts=2 sw=2 et
+		au FileType c setlocal cino=:0
 		" remove trailing whitespace on save
 		au BufWrite * call Preserve("%s/\\( \\\|\t\\)\\+$//e")
 		" augroup perl
