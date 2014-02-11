@@ -61,6 +61,7 @@
 	Bundle 'airblade/vim-gitgutter'
 	Bundle 'tpope/vim-surround'
 	Bundle 'scrooloose/nerdcommenter'
+	Bundle 'terryma/vim-multiple-cursors'
 	Bundle 'kien/ctrlp.vim'
 " }
 
