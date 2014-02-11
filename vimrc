@@ -47,7 +47,6 @@
 " Vundle {
 	Bundle 'gmarik/vundle'
 	Bundle 'scrooloose/nerdtree'
-	Bundle 'wincent/Command-T'
 	Bundle 'vim-scripts/ctagloader'
 	Bundle 'scrooloose/syntastic'
 	Bundle 'majutsushi/tagbar'
@@ -62,6 +61,7 @@
 	Bundle 'airblade/vim-gitgutter'
 	Bundle 'tpope/vim-surround'
 	Bundle 'scrooloose/nerdcommenter'
+	Bundle 'kien/ctrlp.vim'
 " }
 
 " VIM UI {
