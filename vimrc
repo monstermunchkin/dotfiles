@@ -192,6 +192,7 @@
 			au BufNewFile,BufRead *.h set filetype=c
 			au BufNewFile,BufRead *.scala set filetype=java
 			au BufNewFile,BufRead CMakeLists set filetype=cmake
+			au BufNewFile,BufRead *.md set filetype=markdown
 		augroup END
 	endif
 " }
