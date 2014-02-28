@@ -162,7 +162,7 @@
 	nnoremap <F9> :call Toggle_tabs()<CR>
 	" plugins
 	nnoremap <F10> :NERDTreeToggle<CR>
-	nnoremap <F11> :CommandT<CR>
+	nnoremap <F11> :CtrlP<CR>
 	nnoremap <F12> :TagbarToggle<CR>
 	" bubbling text
 	nmap <C-Up> [e
