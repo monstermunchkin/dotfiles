@@ -20,8 +20,7 @@ export DE=gnome
 export BROWSER=firefox
 export EDITOR=vim
 
-#exec "${1}"
-exec i3
+exec "${2}"
 
 # exec gnome-session
 # exec startkde
