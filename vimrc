@@ -151,7 +151,7 @@
 	" spell checking
 	nnoremap <silent> <Leader>s :set spell!<CR>
 	" copy, paste and cut
-	nnoremap <Leader><F2> ggVG"+y
+	nnoremap <F2> ggVG"+y
 	vnoremap <F2> "+y
 	nnoremap <F3> "+gP
 	vnoremap <F4> "+x
