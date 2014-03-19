@@ -63,6 +63,7 @@
 	Bundle 'scrooloose/nerdcommenter'
 	Bundle 'terryma/vim-multiple-cursors'
 	Bundle 'kien/ctrlp.vim'
+	Bundle 'derekwyatt/vim-fswitch'
 " }
 
 " VIM UI {
@@ -154,6 +155,7 @@
 	vnoremap <F2> "+y
 	nnoremap <F3> "+gP
 	vnoremap <F4> "+x
+        nnoremap <F4> :FSHere<CR>
 	" show errors (requires syntastic)
 	nnoremap <F6> :Errors<CR>
 	" remove trailing whitespace
