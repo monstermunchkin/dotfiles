@@ -45,6 +45,7 @@
 	let g:gitgutter_eager=0
 	let g:clang_auto_select=1
 	let g:clang_close_preview=1
+	let g:delimitMate_expand_cr=2
 " }
 
 " Vundle {
@@ -68,6 +69,7 @@
 	Bundle 'kien/ctrlp.vim'
 	Bundle 'derekwyatt/vim-fswitch'
 	Bundle 'Rip-Rip/clang_complete'
+	Bundle 'Raimondi/delimitMate'
 " }
 
 " VIM UI {
