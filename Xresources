@@ -39,22 +39,21 @@ URxvt*urgentOnBell: true
 
 *foreground: #ffffff
 *background: #111111
-*color0: #2e3436
-*color1: #cc0000
-*color2: #4e9a06
-*color3: #c4a000
-*color4: #3465a4
-*color5: #75507b
-*color6: #0b939b
-*color7: #d3d7cf
-*color8: #555753
-*color9: #ef2929
-*color10: #8ae234
-*color11: #fce94f
-*color12: #729fcf
-*color13: #ad7fa8
-*color14: #00f5e9
-*color15: #eeeeec
+!red: OrangeRed1
+*color1: #ff4500
+*color9: #ff4500
+!yellow: gold1
+*color3: #ffd700
+*color11: #ffd700
+!blue: CornflowerBlue
+*color4: #6495ed
+*color12: #6495ed
+!magenta: IndianRed1
+*color5: #ff6a6a
+*color13: #ff6a6a
+!cyan: cyan3
+*color6: #00cdcd
+*color14: #00cdcd
 
 ! true transparency
 URxvt*depth: 32
