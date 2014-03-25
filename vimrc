@@ -23,6 +23,7 @@
 	filetype plugin indent on
 	set backspace=indent,eol,start
 	set autoread "automatically reload a file if its file mode has changed
+	set completeopt=menu,menuone "disable preview scratch window
 " }
 
 " Plugin settings {
@@ -42,6 +43,8 @@
 	let g:airline_theme='molokai'
 	let g:gitgutter_realtime=0
 	let g:gitgutter_eager=0
+	let g:clang_auto_select=1
+	let g:clang_close_preview=1
 " }
 
 " Vundle {
@@ -64,6 +67,7 @@
 	Bundle 'terryma/vim-multiple-cursors'
 	Bundle 'kien/ctrlp.vim'
 	Bundle 'derekwyatt/vim-fswitch'
+	Bundle 'Rip-Rip/clang_complete'
 " }
 
 " VIM UI {
