@@ -71,6 +71,7 @@ xorg: xorg-local
 xorg-local: xorg/xinitrc xorg/Xresources
 	ln -sfv $(PWD)/xorg/xinitrc ~/.xinitrc
 	ln -sfv $(PWD)/xorg/Xresources ~/.Xresources
+	ln -sfv $(PWD)/xorg/Xmodmap ~/.Xmodmap
 
 zsh: zsh-global zsh-local
 
