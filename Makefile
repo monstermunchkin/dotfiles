@@ -2,16 +2,18 @@
 	all clean global local \
 	bash bash-local bash-global \
 	colordiff colordiff-local \
+	gnupg gnupg-local \
 	i3 i3-local i3-global \
 	vim vim-local vim-global \
 	xorg xorg-local \
 	zsh zsh-local zsh-global
 
-all: bash colordiff i3 vim xorg zsh
+all: bash colordiff gnupg i3 vim xorg zsh
 
 global: bash-global i3-global vim-global zsh-global
 
-local: bash-local colordiff-local i3-local vim-local xorg-local zsh-local
+local: bash-local colordiff-local gnupg-local i3-local vim-local xorg-local \
+	zsh-local
 
 clean: clean-global clean-local
 
@@ -23,7 +25,9 @@ clean-local:
 		~/.xinitrc \
 		~/.Xresources \
 		~/.zprofile \
-		/usr/local/share/vim/bundle
+		/usr/local/share/vim/bundle \
+		~/.gnupg/gpg.conf \
+		~/.gnupg/gpg-agent.conf
 
 clean-global:
 	sudo rm -rf \
@@ -45,6 +49,12 @@ colordiff: colordiff-local
 
 colordiff-local: colordiff/colordiffrc
 	ln -sfv $(PWD)/colordiff/colordiffrc ~/.colordiffrc
+
+gnupg: gnupg-local
+
+gnupg-local: gnupg/gpg.conf gnupg/gpg-agent.conf
+	ln -sfv $(PWD)/gnupg/gpg.conf ~/.gnupg/gpg.conf
+	ln -sfv $(PWD)/gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 
 i3: i3-global i3-local
 
