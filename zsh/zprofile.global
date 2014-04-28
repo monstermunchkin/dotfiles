@@ -6,3 +6,5 @@ export SDL_AUDIODRIVER=alsa
 export GTK_IM_MODULE=xim
 export JAVA_HOME=/usr/lib/jvm/java-7-openjdk
 export EDITOR=vim
+# PyCharm font setting
+export _JAVA_OPTIONS=-Dawt.useSystemAAFontSettings=on
