@@ -69,8 +69,8 @@ i3-global: i3/i3swrapper
 vim: vim-global vim-local
 
 vim-local: vim/Vundle.vim
-	rm -rfv /usr/local/share/vim/bundle/vundle
-	ln -sfv $(PWD)/vim/Vundle.vim /usr/local/share/vim/bundle/vundle
+	rm -rfv /usr/local/share/vim/bundle/Vundle.vim
+	ln -sfv $(PWD)/vim/Vundle.vim /usr/local/share/vim/bundle/Vundle.vim
 
 vim-global: vim/vimrc
 	sudo ln -sfv $(PWD)/vim/vimrc /etc/vimrc

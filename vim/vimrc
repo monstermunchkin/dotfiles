@@ -1,6 +1,6 @@
 " General {
 	set nocompatible "use VIM settings
-	set rtp+=/usr/local/share/vim/bundle/vundle
+	set rtp+=/usr/local/share/vim/bundle/Vundle.vim
 	call vundle#rc()
 	set background=dark
 	if has("syntax")
@@ -51,7 +51,7 @@
 " }
 
 " Vundle {
-	Bundle 'gmarik/vundle'
+	Bundle 'gmarik/Vundle.vim'
 	Bundle 'scrooloose/nerdtree'
 	Bundle 'vim-scripts/ctagloader'
 	Bundle 'scrooloose/syntastic'
