@@ -4,6 +4,7 @@
 	colordiff colordiff-local \
 	gnupg gnupg-local \
 	i3 i3-local i3-global \
+	systemd systemd-local \
 	vim vim-local vim-global \
 	xorg xorg-local \
 	zsh zsh-local zsh-global
@@ -65,6 +66,12 @@ i3-local: i3/config i3/i3status.conf
 
 i3-global: i3/i3swrapper
 	sudo ln -sfv $(PWD)/i3/i3swrapper /usr/local/bin/i3swrapper
+
+systemd: systemd-local
+
+systemd-local:
+	rm -rf ~/.config/systemd/user
+	ln -sfv $(PWD)/systemd/systemd-user-units ~/.config/systemd/user
 
 vim: vim-global vim-local
 

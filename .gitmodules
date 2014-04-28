@@ -7,3 +7,6 @@
 [submodule "vim/Vundle.vim"]
 	path = vim/Vundle.vim
 	url = git@github.com:gmarik/Vundle.vim.git
+[submodule "systemd/systemd-user-units"]
+	path = systemd/systemd-user-units
+	url = https://git@github.com/monstermunchkin/systemd-user-units
