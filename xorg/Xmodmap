@@ -246,7 +246,8 @@ keycode 252 =
 keycode 253 =
 keycode 254 =
 keycode 255 =
-keycode 133 = Mode_switch
+! Caps Lock for Umlauts and symbols
+keycode 66 = Mode_switch
 keysym e = e E EuroSign
 keysym c = c C cent
 keysym a = a A adiaeresis Adiaeresis
