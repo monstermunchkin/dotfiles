@@ -246,6 +246,9 @@ keycode 252 =
 keycode 253 =
 keycode 254 =
 keycode 255 =
+! Swap Alt_L and Super_L
+keycode 64 = Super_L
+keycode 133 = Alt_L
 ! Caps Lock for Umlauts and symbols
 keycode 66 = Mode_switch
 keysym e = e E EuroSign
