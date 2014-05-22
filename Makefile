@@ -92,16 +92,17 @@ xorg-local: xorg/xinitrc xorg/Xresources
 
 zsh: zsh-global zsh-local
 
-zsh-local: zsh/zprofile.local zsh/zsh-custom
+zsh-local: zsh/zprofile.local zsh/zsh-custom zsh/zshrc.local
 	rm -rfv ~/.oh-my-zsh
 	ln -sfv /usr/local/share/oh-my-zsh ~/.oh-my-zsh
 	ln -sfv $(PWD)/zsh/zprofile.local ~/.zprofile
+	ln -sfv $(PWD)/zsh/zshrc.local ~/.zshrc
 	rm -rfv zsh/oh-my-zsh/custom
 	ln -sfv $(PWD)/zsh/zsh-custom zsh/oh-my-zsh/custom
 
-zsh-global: zsh/zshrc zsh/zprofile.global zsh/oh-my-zsh
+zsh-global: zsh/zshrc.global zsh/zprofile.global zsh/oh-my-zsh
 	sudo install -d /etc/zsh
-	sudo ln -sfv $(PWD)/zsh/zshrc /etc/zsh/zshrc
+	sudo ln -sfv $(PWD)/zsh/zshrc.global /etc/zsh/zshrc
 	sudo ln -sfv $(PWD)/zsh/zprofile.global /etc/zsh/zprofile
 	sudo rm -rfv /usr/local/share/oh-my-zsh
 	sudo ln -sfv $(PWD)/zsh/oh-my-zsh /usr/local/share/oh-my-zsh
