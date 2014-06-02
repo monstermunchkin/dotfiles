@@ -5,9 +5,9 @@
 	gnupg gnupg-local \
 	i3 i3-local i3-global \
 	systemd systemd-local \
-	vim vim-local vim-global \
+	vim vim-local vim-global vim-update \
 	xorg xorg-local \
-	zsh zsh-local zsh-global
+	zsh zsh-local zsh-global zsh-update
 
 all: bash colordiff gnupg i3 vim xorg zsh
 
@@ -83,6 +83,9 @@ vim-global: vim/vimrc
 	sudo ln -sfv $(PWD)/vim/vimrc /etc/vimrc
 	sudo install -dm777 /usr/local/share/vim/bundle
 
+vim-update: vim/Vundle.vim
+	cd vim/Vundle.vim && git pull origin master
+
 xorg: xorg-local
 
 xorg-local: xorg/xinitrc xorg/Xresources
@@ -106,3 +109,6 @@ zsh-global: zsh/zshrc.global zsh/zprofile.global zsh/oh-my-zsh
 	sudo ln -sfv $(PWD)/zsh/zprofile.global /etc/zsh/zprofile
 	sudo rm -rfv /usr/local/share/oh-my-zsh
 	sudo ln -sfv $(PWD)/zsh/oh-my-zsh /usr/local/share/oh-my-zsh
+
+zsh-update: zsh/oh-my-zsh
+	cd zsh/oh-my-zsh && git pull origin master
