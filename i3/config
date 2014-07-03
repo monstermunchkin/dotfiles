@@ -171,11 +171,6 @@ bindcode 121 exec amixer set Master toggle
 bindcode 123 exec amixer set Master 1%+
 bindcode 198 exec tpmic toggle
 
-# hotkeys: next, play/pause, previous
-bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
-bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
-bindsym XF86AudioPrev exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
-
 # other bindings
 bindsym XF86ScreenSaver exec xautolock -locknow
 bindsym $mod+Print exec scrot -m
@@ -191,6 +186,7 @@ for_window [class="Chromium" window_role="pop-up"] floating enable border normal
 for_window [class="Firefox" title="Firefox Preferences"] floating enable border normal
 for_window [class="Thunderbird" title="Thunderbird Preferences"] floating enable border normal
 for_window [class="mPlaneClient"] floating enable border normal
+for_window [class="Skype"] floating enable border normal
 
 # workspace settings
 #assign [class="Chromium"] 1
@@ -210,11 +206,11 @@ workspace 2 output LVDS1
 workspace 3 output LVDS1
 workspace 4 output LVDS1
 workspace 5 output LVDS1
-workspace 6 output VGA1
-workspace 7 output VGA1
-workspace 8 output VGA1
-workspace 9 output VGA1
-workspace 10 output VGA1
+workspace 6 output LVDS1
+workspace 7 output LVDS1
+workspace 8 output LVDS1
+workspace 9 output LVDS1
+workspace 10 output LVDS1
 # END LAYOUT
 
 # vim: set syn=conf et:
