@@ -197,7 +197,6 @@ exec nitrogen --restore
 #exec urxvtd
 exec tpmic init
 exec xautolock
-exec pasystray
 
 # screen layout
 # BEGIN LAYOUT
