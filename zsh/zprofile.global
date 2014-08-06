@@ -1,6 +1,6 @@
 emulate sh -c 'source /etc/profile'
 
-export PATH="${PATH}:/usr/local/texlive/$(ls /usr/local/texlive | egrep -m1 '[[:digit:]]{4}')/bin/x86_64-linux"
+export PATH="${PATH}:/usr/local/texlive/$(ls /usr/local/texlive 2>/dev/null | egrep -m1 '[[:digit:]]{4}')/bin/x86_64-linux"
 export PATH="${PATH}:${ANDROID_HOME}/platform-tools"
 export PATH="${PATH}:${ANDROID_NDK}/toolchains/arm-linux-androideabi-4.8/prebuilt/linux-x86_64/bin"
 # enable sound in Steam
