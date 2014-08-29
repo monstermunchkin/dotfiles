@@ -54,6 +54,7 @@ colordiff-local: colordiff/colordiffrc
 gnupg: gnupg-local
 
 gnupg-local: gnupg/gpg.conf gnupg/gpg-agent.conf
+	install -d ~/.gnupg
 	ln -sfv $(PWD)/gnupg/gpg.conf ~/.gnupg/gpg.conf
 	ln -sfv $(PWD)/gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 
