@@ -10,7 +10,6 @@
 	set nowrapscan  " stop searching at the end or beginning of the file
 	set rtp+=/usr/local/share/vim/bundle/Vundle.vim  " set runtime path
 	set scrolloff=2  " keep 2 lines around the cursor
-
 	if exists('+autochdir')
 		set autochdir  " change to directory of file in buffer
 	endif
@@ -133,7 +132,11 @@
 	set background=dark
 	set laststatus=2  " always show status line
 	set listchars=tab:▶\  " shown tab character
+	set noet
 	set number
+	set sts=4
+	set sw=4
+	set ts=4
 	colorscheme molokai
 
 	if has('linebreak')
