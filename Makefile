@@ -3,7 +3,7 @@
 	bash bash-local bash-global \
 	colordiff colordiff-local \
 	gnupg gnupg-local \
-	i3 i3-local i3-global \
+	i3 i3-local \
 	systemd systemd-local \
 	vim vim-local vim-global vim-update \
 	xorg xorg-local \
@@ -11,7 +11,7 @@
 
 all: bash colordiff gnupg i3 vim xorg zsh
 
-global: bash-global i3-global vim-global zsh-global
+global: bash-global vim-global zsh-global
 
 local: bash-local colordiff-local gnupg-local i3-local vim-local xorg-local \
 	zsh-local
@@ -58,15 +58,14 @@ gnupg-local: gnupg/gpg.conf gnupg/gpg-agent.conf
 	ln -sfv $(PWD)/gnupg/gpg.conf ~/.gnupg/gpg.conf
 	ln -sfv $(PWD)/gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 
-i3: i3-global i3-local
+i3: i3-local
 
 i3-local: i3/config i3/i3status.conf
 	install -d ~/.i3
+	go get github.com/monstermunchkin/go-i3status
+	go install github.com/monstermunchkin/go-i3status
 	ln -sfv $(PWD)/i3/config ~/.i3/config
 	ln -sfv $(PWD)/i3/i3status.conf ~/.i3status.conf
-
-i3-global: i3/i3swrapper
-	sudo ln -sfv $(PWD)/i3/i3swrapper /usr/local/bin/i3swrapper
 
 systemd: systemd-local
 
