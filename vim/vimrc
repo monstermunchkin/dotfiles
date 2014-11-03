@@ -93,6 +93,10 @@
 		let g:delimitMate_jump_expansion=1
 		let g:gitgutter_eager=0
 		let g:gitgutter_realtime=0
+		let g:neocomplete#enable_at_startup=1
+		let g:neocomplete#enable_smart_case=1
+		let g:neocomplete#lock_buffer_name_pattern='\*ku\*'
+		let g:neocomplete#sources#syntax#min_keyword_length=3
 		let g:NERDTreeQuitOnOpen=1
 		let g:tagbar_autoclose=1
 		let g:tagbar_autofocus=1
@@ -110,19 +114,25 @@
 	Plugin 'gmarik/Vundle.vim'
 	Plugin 'airblade/vim-gitgutter'  " git diff
 	Plugin 'bling/vim-airline'  " lean & mean status/tabline
+	Plugin 'fatih/vim-go'  " go support for vim
 	Plugin 'kien/ctrlp.vim'  " fuzzy finder
 	Plugin 'majutsushi/tagbar'  " browse the tags of source code files
 	Plugin 'Raimondi/delimitMate'  " automatic closing of quotes, parenthesis, brackets, etc.
 	Plugin 'scrooloose/nerdcommenter'  " comments
 	Plugin 'scrooloose/nerdtree'  " file explorer
 	Plugin 'scrooloose/syntastic'  " syntax checking
+	if has('lua')
+		Plugin 'Shougo/neocomplete.vim'  " neo-completion with cache
+	endif
 	Plugin 'tacahiroy/ctrlp-funky'  " function nativator for ctrlp.vim
 	Plugin 'terryma/vim-multiple-cursors'  " multiple selection feature
 	Plugin 'thinca/vim-visualstar'  " searcher
 	Plugin 'tomasr/molokai'  " molokai colorscheme
 	Plugin 'tpope/vim-fugitive'  " git wrapper
 	Plugin 'tpope/vim-surround'  " surroundings
-	Plugin 'Valloric/YouCompleteMe'  " code-completion engine
+	if has('python')
+		Plugin 'Valloric/YouCompleteMe'  " code-completion engine
+	endif
 	Plugin 'vim-scripts/bufkill.vim'  " kill buffers with closing the window
 	call vundle#end()
 	filetype plugin indent on  " required by Vundle.vim
