@@ -24,7 +24,7 @@ set $mod Mod1
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -175,6 +175,7 @@ bindcode 198 exec tpmic toggle
 bindsym XF86ScreenSaver exec xautolock -locknow
 bindsym $mod+Print exec scrot -m
 bindsym $mod+Shift+Print exec scrot -s
+bindsym XF86Launch1 exec systemctl --user isolate graphical.target
 
 # floating mode
 for_window [class="Pidgin"] floating enable border normal
