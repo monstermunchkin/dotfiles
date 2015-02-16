@@ -251,10 +251,12 @@ keycode 64 = Super_L
 keycode 133 = Alt_L
 ! Caps Lock for Umlauts and symbols
 keycode 66 = Mode_switch
-keysym e = e E EuroSign
-keysym c = c C cent
 keysym a = a A adiaeresis Adiaeresis
+keysym c = c C copyright
+keysym e = e E EuroSign
+keysym m = m M mu mu
 keysym o = o O odiaeresis Odiaeresis
-keysym u = u U udiaeresis Udiaeresis
 keysym s = s S ssharp
+keysym u = u U udiaeresis Udiaeresis
+keysym minus = minus underscore endash emdash
 keysym period = period greater ellipsis
