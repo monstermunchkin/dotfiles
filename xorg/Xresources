@@ -1,5 +1,6 @@
 ! font
 URxvt*font: xft:Source Code Pro:size=11:rgba=none,xft:Source Code Pro Light:size=11
+xterm*faceName: Source Code Pro for Powerline:size=11:rgba=none,Source Code Pro Light for Powerline:size=11
 
 ! window
 URxvt*scrollBar: off
