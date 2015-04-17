@@ -1,5 +1,5 @@
 .PHONY: \
-	all clean global local \
+	all clean global local update \
 	bash bash-local bash-global \
 	colordiff colordiff-local \
 	gnupg gnupg-local \
@@ -39,6 +39,8 @@ clean-global:
 		/etc/zsh/zshrc \
 		/etc/zsh/zprofile \
 		/usr/local/share/oh-my-zsh
+
+update: vim-update zsh-update
 
 bash: bash-global
 
