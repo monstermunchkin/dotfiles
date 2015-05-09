@@ -98,4 +98,12 @@ Xautolock.time: 10
 
 URxvt*modifier: super
 
+rofi.terminal: urxvt
+rofi.font: Source Code Pro Regular 10
+rofi.sidebar-mode: true
+rofi.key-run: Mod1+d
+rofi.key-window: Mod1+Shift+d
+rofi.location: 2
+rofi.fixed-num-lines: true
+
 ! vim: syn=xdefaults:
