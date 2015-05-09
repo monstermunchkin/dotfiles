@@ -43,6 +43,8 @@ URxvt*urgentOnBell: true
 !red: OrangeRed1
 *color1: #ff4500
 *color9: #ff4500
+!green:
+*color2: #4fff00
 !yellow: gold1
 *color3: #ffd700
 *color11: #ffd700
@@ -81,7 +83,7 @@ URxvt.keysym.Control-Right: \033[1;5C
 ! perl extensions
 URxvt*perl-ext-common: default,matcher,vtwheel,clipboard
 
-URxvt.urlLauncher: chromium
+URxvt.urlLauncher: firefox
 
 URxvt*matcher.button: 2
 URxvt*matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
