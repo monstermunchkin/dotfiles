@@ -79,6 +79,8 @@
 
 	" bufkill
 	nnoremap <Leader>bd :BD<CR>
+
+	nmap <Leader>l :set list!<CR>
 " }}}
 
 " Plugins {{{
