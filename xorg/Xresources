@@ -105,7 +105,7 @@ rofi.font: Source Code Pro Regular 10
 rofi.sidebar-mode: true
 rofi.key-run: Mod1+d
 rofi.key-window: Mod1+Shift+d
-rofi.location: 2
 rofi.fixed-num-lines: true
+rofi.modi: run,window
 
 ! vim: syn=xdefaults:
