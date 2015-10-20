@@ -124,7 +124,7 @@
 	Plugin 'scrooloose/nerdtree'  " file explorer
 	Plugin 'scrooloose/syntastic'  " syntax checking
 	if has('lua')
-		Plugin 'Shougo/neocomplete.vim'  " neo-completion with cache
+		"Plugin 'Shougo/neocomplete.vim'  " neo-completion with cache
 	endif
 	Plugin 'tacahiroy/ctrlp-funky'  " function nativator for ctrlp.vim
 	Plugin 'terryma/vim-multiple-cursors'  " multiple selection feature
@@ -133,7 +133,7 @@
 	Plugin 'tpope/vim-fugitive'  " git wrapper
 	Plugin 'tpope/vim-surround'  " surroundings
 	if has('python')
-		Plugin 'Valloric/YouCompleteMe'  " code-completion engine
+		"Plugin 'Valloric/YouCompleteMe'  " code-completion engine
 	endif
 	Plugin 'vim-scripts/bufkill.vim'  " kill buffers with closing the window
 	call vundle#end()
@@ -175,6 +175,8 @@
 		autocmd BufWrite * call Preserve("%s/\\( \\\|\t\\)\\+$//e")
 
 		autocmd FileType python setlocal ts=4 sts=4 sw=4 et
+		autocmd FileType tex setlocal sts=2 sw=2 et
+		autocmd FileType plaintex setlocal sts=2 sw=2 et
 		autocmd FileType c setlocal cino=:0
 
 		augroup filetypedetect

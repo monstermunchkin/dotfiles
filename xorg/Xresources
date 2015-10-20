@@ -100,6 +100,9 @@ Xautolock.time: 10
 
 URxvt*modifier: super
 
+! disable printing
+URxvt.print-pipe: "cat > /dev/null"
+
 rofi.terminal: urxvt
 rofi.font: Source Code Pro Regular 10
 rofi.sidebar-mode: true
@@ -107,5 +110,6 @@ rofi.key-run: Mod1+d
 rofi.key-window: Mod1+Shift+d
 rofi.fixed-num-lines: true
 rofi.modi: run,window
+rofi.levenshtein-sort: false
 
 ! vim: syn=xdefaults:

@@ -1,6 +1,6 @@
 emulate sh -c 'source /etc/profile'
 
-export PATH="${PATH}:/usr/local/texlive/$(ls /usr/local/texlive 2>/dev/null | egrep -m1 '[[:digit:]]{4}')/bin/x86_64-linux"
+export PATH="${PATH}:/usr/local/texlive/$(ls /usr/local/texlive 2>/dev/null | sort -rn | egrep -m1 '[[:digit:]]{4}')/bin/x86_64-linux"
 export PATH="${PATH}:${ANDROID_HOME}/platform-tools"
 export PATH="${PATH}:${ANDROID_NDK}/toolchains/arm-linux-androideabi-4.8/prebuilt/linux-x86_64/bin"
 # enable sound in Steam
@@ -8,7 +8,5 @@ export SDL_AUDIODRIVER=alsa
 export GTK_IM_MODULE=xim
 export JAVA_HOME=/usr/lib/jvm/java-7-openjdk
 export EDITOR=vim
-# PyCharm font setting
-export _JAVA_OPTIONS=-Dawt.useSystemAAFontSettings=on
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/opt/google/earth"
 export MAKEFLAGS="-j8"

@@ -20,6 +20,7 @@ export DE=gnome
 export BROWSER=firefox
 export EDITOR=vim
 
+echo $1 $2
 exec "${2}"
 
 # exec gnome-session
