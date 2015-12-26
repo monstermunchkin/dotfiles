@@ -104,6 +104,7 @@
 		let g:tagbar_autofocus=1
 		let g:ycm_confirm_extra_conf=0
 		let g:ycm_enable_diagnostic_signs=0
+		let g:go_fmt_command="goimports"
 
 		function! AirlineInit()
 			let g:airline_section_y=''
@@ -130,6 +131,7 @@
 	Plugin 'terryma/vim-multiple-cursors'  " multiple selection feature
 	Plugin 'thinca/vim-visualstar'  " searcher
 	Plugin 'tomasr/molokai'  " molokai colorscheme
+	Plugin 'altercation/vim-colors-solarized'  " solarized colorscheme
 	Plugin 'tpope/vim-fugitive'  " git wrapper
 	Plugin 'tpope/vim-surround'  " surroundings
 	if has('python')
@@ -149,7 +151,7 @@
 	set sts=4
 	set sw=4
 	set ts=4
-	colorscheme molokai
+	colorscheme solarized
 
 	if has('linebreak')
 		set numberwidth=5

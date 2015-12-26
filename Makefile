@@ -2,6 +2,7 @@
 	all clean global local update \
 	bash bash-local bash-global \
 	colordiff colordiff-local \
+	dircolors dircolors-global \
 	gnupg gnupg-local \
 	i3 i3-local \
 	systemd systemd-local \
@@ -9,12 +10,12 @@
 	xorg xorg-local \
 	zsh zsh-local zsh-global zsh-update
 
-all: bash colordiff gnupg i3 vim xorg zsh
+all: bash colordiff dircolors gnupg i3 systemd vim xorg zsh
 
-global: bash-global vim-global zsh-global
+global: bash-global dircolors-global  vim-global zsh-global
 
-local: bash-local colordiff-local gnupg-local i3-local vim-local xorg-local \
-	zsh-local
+local: bash-local colordiff-local gnupg-local i3-local systemd-local \
+	vim-local xorg-local zsh-local
 
 clean: clean-global clean-local
 
@@ -38,7 +39,8 @@ clean-global:
 		/etc/vimrc \
 		/etc/zsh/zshrc \
 		/etc/zsh/zprofile \
-		/usr/local/share/oh-my-zsh
+		/usr/local/share/oh-my-zsh \
+		/usr/local/share/dircolors
 
 update: vim-update zsh-update
 
@@ -50,8 +52,13 @@ bash-global: bash/bashrc bash/profile
 
 colordiff: colordiff-local
 
-colordiff-local: colordiff/colordiffrc
-	ln -sfv $(PWD)/colordiff/colordiffrc ~/.colordiffrc
+colordiff-local: misc/colordiffrc
+	ln -sfv $(PWD)/misc/colordiffrc ~/.colordiffrc
+
+dircolors: dircolors-global
+
+dircolors-global: misc/dircolors
+	sudo ln -sfv $(PWD)/misc/dircolors /usr/local/share/dircolors
 
 gnupg: gnupg-local
 
@@ -73,6 +80,7 @@ systemd: systemd-local
 
 systemd-local:
 	rm -rf ~/.config/systemd/user
+	mkdir -p ~/.config/systemd
 	ln -sfv $(PWD)/systemd/systemd-user-units ~/.config/systemd/user
 
 vim: vim-global vim-local

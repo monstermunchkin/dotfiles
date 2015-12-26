@@ -20,7 +20,11 @@ export DE=gnome
 export BROWSER=firefox
 export EDITOR=vim
 
-echo $1 $2
+xrandr --output eDP1 --primary
+# disable touchpad
+touchpad_id="$(xinput list --short "SynPS/2 Synaptics TouchPad" | grep -Eo 'id=[[:digit:]]+' | cut -d= -f2)"
+xinput set-prop ${touchpad_id} "Device Enabled" 0
+
 exec "${2}"
 
 # exec gnome-session

@@ -8,59 +8,66 @@ URxvt*geometry: 85x25
 URxvt*secondaryScroll: off
 URxvt*urgentOnBell: true
 
-! COLORS AND GRAPHICS
-!
-! If graphics support was enabled at compile-time, rxvt can be queried with ANSI escape sequences and can address individual pixels instead of text
-! characters. Note the graphics support is still considered beta code.
-!
-! In addition to the default foreground and background colours, rxvt can display up to 16 colours (8 ANSI colours plus high-intensity bold/blink
-! versions of the same). Here is a list of the colours with their rgb.txt names.
-!
-! color0 	(black) 	= Black
-! color1 	(red) 	        = Red3
-! color2 	(green) 	= Green3
-! color3 	(yellow) 	= Yellow3
-! color4 	(blue) 	        = Blue3
-! color5 	(magenta) 	= Magenta3
-! color6 	(cyan) 	        = Cyan3
-! color7 	(white) 	= AntiqueWhite
-! color8 	(bright black) 	= Grey25
-! color9 	(bright red) 	= Red
-! color10 (bright green) 	= Green
-! color11 (bright yellow) = Yellow
-! color12 (bright blue) 	= Blue
-! color13 (bright magenta)= Magenta
-! color14 (bright cyan) 	= Cyan
-! color15 (bright white) 	= White
-! foreground 		= Black
-! background 		= White
-!
-! It is also possible to specify the colour values of foreground, background, cursorColor, cursorColor2, colorBD, colorUL as a number 0-15, as a
-! convenient shorthand to reference the colour name of color0-color15.
+#define S_base03        #002b36
+#define S_base02        #073642
+#define S_base01        #586e75
+#define S_base00        #657b83
+#define S_base0         #839496
+#define S_base1         #93a1a1
+#define S_base2         #eee8d5
+#define S_base3         #fdf6e3
 
-*foreground: #ffffff
-*background: #111111
-!red: OrangeRed1
-*color1: #ff4500
-*color9: #ff4500
-!green:
-*color2: #4fff00
-!yellow: gold1
-*color3: #ffd700
-*color11: #ffd700
-!blue: CornflowerBlue
-*color4: #6495ed
-*color12: #6495ed
-!magenta: IndianRed1
-*color5: #ff6a6a
-*color13: #ff6a6a
-!cyan: cyan3
-*color6: #00cdcd
-*color14: #00cdcd
+*background:            S_base03
+*foreground:            S_base0
+*fadeColor:             S_base03
+*cursorColor:           S_base1
+*pointerColorBackground:S_base01
+*pointerColorForeground:S_base1
+
+#define S_yellow        #b58900
+#define S_orange        #cb4b16
+#define S_red           #dc322f
+#define S_magenta       #d33682
+#define S_violet        #6c71c4
+#define S_blue          #268bd2
+#define S_cyan          #2aa198
+#define S_green         #859900
+
+!! black dark/light
+*color0:                S_base02
+*color8:                S_base03
+
+!! red dark/light
+*color1:                S_red
+*color9:                S_orange
+
+!! green dark/light
+*color2:                S_green
+*color10:               S_base01
+
+!! yellow dark/light
+*color3:                S_yellow
+*color11:               S_base00
+
+!! blue dark/light
+*color4:                S_blue
+*color12:               S_base0
+
+!! magenta dark/light
+*color5:                S_magenta
+*color13:               S_violet
+
+!! cyan dark/light
+*color6:                S_cyan
+*color14:               S_base1
+
+!! white dark/light
+*color7:                S_base2
+*color15:               S_base3
 
 ! true transparency
-URxvt*depth: 32
-URxvt*background: rgba:0000/0000/0000/cccc
+!URxvt*depth: 32
+!URxvt*background: rgba:0000/0000/0000/cccc
 
 ! native transparency
 !URxvt.transparent: true
@@ -103,7 +110,7 @@ URxvt*modifier: super
 ! disable printing
 URxvt.print-pipe: "cat > /dev/null"
 
-rofi.terminal: urxvt
+rofi.terminal: i3-sensible-terminal
 rofi.font: Source Code Pro Regular 10
 rofi.sidebar-mode: true
 rofi.key-run: Mod1+d
