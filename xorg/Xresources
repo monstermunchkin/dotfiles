@@ -1,5 +1,6 @@
 ! font
-URxvt*font: xft:Source Code Pro:size=11:rgba=none,xft:Source Code Pro Light:size=11
+!URxvt*font: xft:Source Code Pro:size=11:rgba=none,xft:Source Code Pro Light:size=11
+URxvt*font: xft:Hack:pixelsize=14:rgba=none,xft:Source Code Pro Light:size=11
 xterm*faceName: Source Code Pro for Powerline:size=11:rgba=none,Source Code Pro Light for Powerline:size=11
 
 ! window
@@ -8,6 +9,7 @@ URxvt*geometry: 85x25
 URxvt*secondaryScroll: off
 URxvt*urgentOnBell: true
 
+! Solarized dark
 #define S_base03        #002b36
 #define S_base02        #073642
 #define S_base01        #586e75
@@ -66,8 +68,8 @@ URxvt*urgentOnBell: true
 *color15:               S_base3
 
 ! true transparency
-!URxvt*depth: 32
-!URxvt*background: rgba:0000/0000/0000/cccc
+URxvt*depth: 32
+URxvt*background: rgba:0000/0000/0000/dddd
 
 ! native transparency
 !URxvt.transparent: true
@@ -90,7 +92,7 @@ URxvt.keysym.Control-Right: \033[1;5C
 ! perl extensions
 URxvt*perl-ext-common: default,matcher,vtwheel,clipboard
 
-URxvt.urlLauncher: firefox
+URxvt.urlLauncher: chromium
 
 URxvt*matcher.button: 2
 URxvt*matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]

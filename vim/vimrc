@@ -105,6 +105,8 @@
 		let g:ycm_confirm_extra_conf=0
 		let g:ycm_enable_diagnostic_signs=0
 		let g:go_fmt_command="goimports"
+		let g:solarized_termcolors=256
+		let g:solarized_termtrans=1
 
 		function! AirlineInit()
 			let g:airline_section_y=''
@@ -116,6 +118,7 @@
 	call vundle#begin('/usr/local/share/vim/bundle')
 	Plugin 'gmarik/Vundle.vim'
 	Plugin 'airblade/vim-gitgutter'  " git diff
+	Plugin 'vim-airline/vim-airline-themes'  " themes
 	Plugin 'bling/vim-airline'  " lean & mean status/tabline
 	Plugin 'fatih/vim-go'  " go support for vim
 	Plugin 'kien/ctrlp.vim'  " fuzzy finder
@@ -137,7 +140,7 @@
 	if has('python')
 		"Plugin 'Valloric/YouCompleteMe'  " code-completion engine
 	endif
-	Plugin 'vim-scripts/bufkill.vim'  " kill buffers with closing the window
+	Plugin 'qpkorr/vim-bufkill'  " kill buffers with closing the window
 	call vundle#end()
 	filetype plugin indent on  " required by Vundle.vim
 " }}}
@@ -165,7 +168,7 @@
 	" GUI {{{
 		if has('gui_running')
 			set columns=87
-			set guifont=Source\ Code\ Pro\ 11
+			set guifont=Hack\ 10
 			set guioptions-=T  " remove toolbar
 		endif
 	" }}}
