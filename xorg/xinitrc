@@ -17,7 +17,7 @@ systemctl --user isolate graphical.target
 # gnome env will also recognize magnet link handlers for chromium
 
 export DE=gnome
-export BROWSER=firefox
+export BROWSER=chromium
 export EDITOR=vim
 
 xrandr --output eDP1 --primary

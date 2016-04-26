@@ -178,8 +178,8 @@ bindsym $mod+Shift+Print exec scrot -s
 bindsym XF86Launch1 exec systemctl --user isolate graphical.target
 
 # floating mode
-for_window [class="Pidgin"] floating enable border normal
-for_window [class="Gajim"] floating enable border normal
+#for_window [class="Pidgin"] floating enable border normal
+#for_window [class="Gajim"] floating enable border normal
 for_window [class="Xfce4-notifyd"] floating enable border normal
 for_window [class="Thunar" title="File Operation Progress"] floating enable border normal
 for_window [class="Steam"] floating enable border normal

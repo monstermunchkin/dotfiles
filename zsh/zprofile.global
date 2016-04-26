@@ -9,4 +9,4 @@ export GTK_IM_MODULE=xim
 export JAVA_HOME=/usr/lib/jvm/java-7-openjdk
 export EDITOR=vim
 export MAKEFLAGS="-j$(grep processor /proc/cpuinfo | wc -l)"
-command -v dircolors &>/dev/null && eval $(dircolors /usr/local/share/dircolors)
+command -v dircolors &>/dev/null && [[ -f /usr/local/share/dircolors ]] && eval $(dircolors /usr/local/share/dircolors)
